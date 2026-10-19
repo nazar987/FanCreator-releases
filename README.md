@@ -14,7 +14,7 @@
   <img alt="Platform: Windows" src="https://img.shields.io/badge/platform-Windows-0078d4">
   <img alt="Electron, React, TypeScript" src="https://img.shields.io/badge/Electron%20%C2%B7%20React%20%C2%B7%20TypeScript-3178c6">
   <img alt="SQLite with FTS5" src="https://img.shields.io/badge/SQLite-FTS5-003b57">
-  <a href="https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-green"></a>
+  <a href="https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE"><img alt="License: all rights reserved" src="https://img.shields.io/badge/license-all%20rights%20reserved-lightgrey"></a>
 </p>
 
 <p align="center">
@@ -169,4 +169,8 @@ metadata. The application source is maintained in a private repository.
 
 ## License
 
-[MIT](https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE)
+© 2025–2026 nazar987. All rights reserved.
+
+The official installer may be downloaded and used free of charge. Copying, redistributing,
+modifying or presenting the application or its parts as your own work requires written
+permission. Full terms: [LICENSE](https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE).

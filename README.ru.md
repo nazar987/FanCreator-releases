@@ -14,7 +14,7 @@
   <img alt="Платформа: Windows" src="https://img.shields.io/badge/platform-Windows-0078d4">
   <img alt="Electron, React, TypeScript" src="https://img.shields.io/badge/Electron%20%C2%B7%20React%20%C2%B7%20TypeScript-3178c6">
   <img alt="SQLite с FTS5" src="https://img.shields.io/badge/SQLite-FTS5-003b57">
-  <a href="https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE"><img alt="Лицензия: MIT" src="https://img.shields.io/badge/license-MIT-green"></a>
+  <a href="https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE"><img alt="Лицензия: все права защищены" src="https://img.shields.io/badge/license-all%20rights%20reserved-lightgrey"></a>
 </p>
 
 <p align="center">
@@ -175,4 +175,8 @@ Android-компаньон находится на этапе проработк
 
 ## Лицензия
 
-[MIT](https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE)
+© 2025–2026 nazar987. Все права защищены.
+
+Официальный установщик можно бесплатно скачать и использовать. Копировать, распространять,
+изменять приложение или выдавать его и его части за свою работу без письменного разрешения
+запрещено. Полные условия — в [LICENSE](https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE).
