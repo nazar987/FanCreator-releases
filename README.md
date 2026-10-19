@@ -202,7 +202,7 @@ conflict copies so that chapter text is never silently overwritten.
 ## Download
 
 Grab the latest installer from **[Releases](https://github.com/nazar987/FanCreator-releases/releases/latest)**
-(`FanCreator Setup x.y.z.exe`). Windows 10/11, x64. After installation the app keeps itself up to date.
+(`FanCreator-Setup-x.y.z.exe`). Windows 10/11, x64. After installation the app keeps itself up to date.
 
 > The installer is not code-signed, so Windows SmartScreen may show a warning on first run:
 > *More info → Run anyway*.
