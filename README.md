@@ -18,6 +18,10 @@
   <a href="https://github.com/nazar987/FanCreator-releases/releases/latest"><b>⬇ Download for Windows</b></a>
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/editor.png" alt="FanCreator manuscript editor: paginated A4 chapter with wiki-links to characters, story tree in the sidebar" width="900">
+</p>
+
 ---
 
 > **Кратко по-русски.** FanCreator — local-first рабочее пространство для писателей, по сути
@@ -82,6 +86,10 @@ Every release is driven by feedback from that use — which is why so much of th
 
 ### 🗺️ Worldbuilding
 
+<p align="center">
+  <img src="docs/screenshots/board.png" alt="Investigation board: notes linked to characters, shapes and labelled, hand-bent arrows" width="900">
+</p>
+
 - **Boards** — infinite canvas with notes, shapes, images and arrows that can be bent by hand
   around obstacles.
 - **Timelines** — events with sub-events, plus a fishbone (Ishikawa) view.
@@ -110,6 +118,24 @@ Eleven themes, including five "worlds" — Fantasy, Dark Fantasy, Medieval, Sci-
 that change materials, component geometry, typography and motion of the whole shell while the
 manuscript page stays untouched. All textures are procedural inline SVG: zero image assets.
 Each world stays usable in greyscale, at 900 px width, and with OS reduced-motion enabled.
+
+<p align="center">
+  <img src="docs/screenshots/theme-worlds.jpg" alt="The same project dashboard sliced across five theme worlds: Fantasy, Dark Fantasy, Medieval, Sci-Fi, Cyberpunk" width="900">
+  <br><sub>One screen, five worlds — left to right: Fantasy · Dark Fantasy · Medieval · Sci-Fi · Cyberpunk</sub>
+</p>
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/theme-fantasy.jpg" alt="Fantasy theme" width="280"><br><sub>Fantasy</sub></td>
+    <td align="center"><img src="docs/screenshots/theme-darkfantasy.jpg" alt="Dark Fantasy theme" width="280"><br><sub>Dark Fantasy</sub></td>
+    <td align="center"><img src="docs/screenshots/theme-medieval.jpg" alt="Medieval theme" width="280"><br><sub>Medieval</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/theme-scifi.jpg" alt="Sci-Fi theme" width="280"><br><sub>Sci-Fi</sub></td>
+    <td align="center"><img src="docs/screenshots/theme-cyberpunk.jpg" alt="Cyberpunk theme" width="280"><br><sub>Cyberpunk</sub></td>
+    <td align="center"><sub>…plus six classic<br>color palettes</sub></td>
+  </tr>
+</table>
 
 ---
 
