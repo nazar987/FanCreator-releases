@@ -1,244 +1,172 @@
 <h1 align="center">FanCreator</h1>
 
 <p align="center">
-  <b>A local-first workspace for fiction authors</b><br>
-  Think <b>Word + Obsidian + Miro</b> in one offline desktop app — manuscript, linked notes and visual boards together.
+  <b>A desktop workspace for writing fiction and building story worlds</b><br>
+  Manuscripts, characters, linked notes and visual planning in one offline application.
 </p>
 
 <p align="center">
-  <a href="https://github.com/nazar987/FanCreator-releases/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/nazar987/FanCreator-releases?label=release&color=f0b84b"></a>
-  <img alt="platform" src="https://img.shields.io/badge/platform-Windows-0078d4">
-  <img alt="stack" src="https://img.shields.io/badge/Electron%2034%20%C2%B7%20React%2018%20%C2%B7%20TypeScript-3178c6">
-  <img alt="storage" src="https://img.shields.io/badge/SQLite-FTS5-003b57">
-  <img alt="tests" src="https://img.shields.io/badge/tests-1100%2B-2ea44f">
-  <img alt="license" src="https://img.shields.io/badge/license-MIT-green">
+  <b>English</b> · <a href="README.ru.md">Русский</a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/nazar987/FanCreator-releases/releases/latest"><b>⬇ Download for Windows</b></a>
+  <a href="https://github.com/nazar987/FanCreator-releases/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/nazar987/FanCreator-releases?label=release&amp;color=f0b84b"></a>
+  <img alt="Platform: Windows" src="https://img.shields.io/badge/platform-Windows-0078d4">
+  <img alt="Electron, React, TypeScript" src="https://img.shields.io/badge/Electron%20%C2%B7%20React%20%C2%B7%20TypeScript-3178c6">
+  <img alt="SQLite with FTS5" src="https://img.shields.io/badge/SQLite-FTS5-003b57">
+  <a href="https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-green"></a>
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/editor.png" alt="FanCreator manuscript editor: paginated A4 chapter with wiki-links to characters, story tree in the sidebar" width="900">
+  <a href="https://github.com/nazar987/FanCreator-releases/releases/latest"><b>Download for Windows</b></a>
 </p>
 
----
+<p align="center">
+  <img src="https://raw.githubusercontent.com/nazar987/FanCreator-releases/main/docs/screenshots/editor.png" alt="FanCreator: paginated manuscript editor, chapter tree and links to characters" width="900">
+</p>
 
-> **Кратко по-русски.** FanCreator — local-first рабочее пространство для писателей, по сути
-> Word + Obsidian + Miro в одном приложении: редактор рукописи уровня Word (страницы A4,
-> таблицы, `.docx`, PDF), связанные заметки и вики-ссылки как в Obsidian, бесконечные доски
-> как в Miro, плюс таймлайны, родословные и досье персонажей. Полностью офлайн, данные —
-> в SQLite с полнотекстовым поиском, обновляется само. ~45 тыс. строк на TypeScript,
-> 1100+ автотестов, 21 релиз за год. Этот репозиторий — публичная витрина и канал обновлений;
-> исходный код — в закрытом репозитории.
+## Overview
 
----
+FanCreator brings the manuscript and its supporting material into a single project.
+Chapters, character dossiers, plot boards, timelines and family trees stay together,
+with links between the text and the story world.
 
-## What it is
+The Windows application works offline without an account. Project data and images
+are stored locally; writing and editing do not depend on a server. Updates are
+distributed through GitHub Releases. The application interface is in Russian.
 
-Writers usually juggle several tools at once: Word or Google Docs for the manuscript,
-Obsidian or Notion for lore and notes, Miro for plot boards. FanCreator brings them into
-**one local-first desktop app** built specifically around a novel:
-
-| Instead of… | FanCreator gives you |
-| --- | --- |
-| **Word / Google Docs** | A paginated A4 manuscript editor with styles, tables, `.docx` import/export and PDF |
-| **Obsidian / Notion** | Linked notes: wiki-links between chapters, characters and stories, hover previews, inline sub-pages, full-text search |
-| **Miro** | Infinite boards with notes, images, shapes and bendable arrows |
-| **Spreadsheets & sketches** | Timelines, fishbone diagrams, hierarchy and family trees, character dossiers |
-
-Like Obsidian, it is fully local: no accounts, no server, no telemetry, and your data stays in
-your own folder. The only network request is the update check against this repository's releases.
-
-The app is developed together with a working author who uses it daily for real manuscripts.
-Every release is driven by feedback from that use — which is why so much of the work went into
-"invisible" things: Word-identical editor behaviour, safe undo paths, and never losing a chapter.
-
-> The interface is in Russian (that is the target audience). Code and engineering docs are in English.
-
-### At a glance
-
-| | |
-| --- | --- |
-| **Codebase** | ~45 000 lines of TypeScript / TSX / CSS across 160+ modules |
-| **Tests** | 1 100+ automated tests (Vitest; real SQLite, happy-dom for UI) |
-| **Releases** | 21 versions since Oct 2025, delivered silently via auto-update |
-| **IPC surface** | 95 typed handlers in one shared contract |
-| **Editor** | TipTap 3 / ProseMirror with 14 custom extensions + real A4 pagination |
-| **Themes** | 11 — six palettes and five full "theme worlds" |
-| **Data safety** | trash, 20 versions per chapter, zip backups, guarded deletions |
-
----
+Development is guided by feedback from a fiction author using the application
+for everyday manuscript work.
 
 ## Features
 
-### ✍️ Writing
-
-- **Paginated A4 editor** — real pages, not a scrolling textarea: page count, page jump,
-  manual page breaks, per-chapter zoom and paper tint.
-- **Word-level formatting** — fonts and point sizes, line spacing, first-line indent,
-  alignment, colors, highlight, resizable tables with merge/split, format painter.
-- **`.docx` round-trip** — a custom OOXML importer keeps fonts, sizes, colors, spacing, indents
-  and embedded images; export of a single chapter or the whole book.
-- **PDF export** in book layout — A4, every chapter on a new page, images included.
-- **Wiki-links** between prose, characters and chapters — hover shows a card, `Ctrl`+click jumps.
-- Russian + English spellcheck, word counts, daily goals and writing sprints.
-
-### 🗺️ Worldbuilding
+| Area | Capabilities |
+| --- | --- |
+| **Manuscript editor** | A4 pagination, page breaks, fonts, paragraph styles, spacing, indents, tables, images and format painter |
+| **Document exchange** | DOCX import and export; PDF export of individual chapters or a complete story |
+| **Linked workspace** | Wiki-links to characters, stories and chapters, hover previews and inline sub-pages |
+| **Visual planning** | Infinite boards with notes, images, shapes and adjustable arrows; timelines with sub-events and a fishbone view |
+| **Story world** | Character dossiers, custom fields, reusable templates, galleries, hierarchy trees and family trees |
+| **Navigation and search** | Workspace tabs, a command palette, SQLite FTS5 full-text search and project-wide find and replace with chapter previews |
+| **Writing tools** | Russian and English spellcheck, word counts, daily goals and timed writing sprints |
 
 <p align="center">
-  <img src="docs/screenshots/board.png" alt="Investigation board: notes linked to characters, shapes and labelled, hand-bent arrows" width="900">
+  <img src="https://raw.githubusercontent.com/nazar987/FanCreator-releases/main/docs/screenshots/board.png" alt="Plot board with notes, shapes and labelled connecting arrows" width="900">
 </p>
 
-- **Boards** — infinite canvas with notes, shapes, images and arrows that can be bent by hand
-  around obstacles.
-- **Timelines** — events with sub-events, plus a fishbone (Ishikawa) view.
-- **Hierarchy & family trees** — zoomable, collapsible, editable in place.
-- **Characters** — dossiers with avatars, tags, custom fields, art galleries and reusable templates.
+### Data protection
 
-### 🔎 Organization
+- Automatic chapter history retains up to 20 versions per chapter. Restoring a version
+  first saves a snapshot of the current text.
+- Projects, stories and chapters go to a recoverable trash before permanent deletion.
+- `.fancreator` backup archives include project data and images. Import assigns new
+  identifiers to avoid overwriting an existing project.
+- Optional backups run when the application exits. Pending edits are flushed before
+  closing or installing an update.
+- If storage cannot be opened safely, the application enters an explicit read-only mode.
+  Mutations are blocked in both IPC handlers and storage functions; export to an external
+  location remains available for accessible data.
 
-- Browser-style tabs, `Ctrl`+`K` command palette, **full-text search** across every chapter.
-- **Project-wide find & replace** with per-chapter preview — rename a character across a novel safely.
-- Built-in help center, interface tour and changelog.
+### Themes
 
-### 🛡️ Safety net
-
-Fiction is irreplaceable, so destructive paths are deliberately hard to trigger:
-
-- Automatic **chapter version history** — and a safety snapshot *before* every restore,
-  so a rollback can itself be rolled back.
-- **Two-level trash** for projects, stories and chapters.
-- **`.fancreator` backups** — one project or all of them, with images; import never overwrites.
-- Optional **auto-backup on quit**.
-
-### 🎨 Theme worlds
-
-Eleven themes, including five "worlds" — Fantasy, Dark Fantasy, Medieval, Sci-Fi, Cyberpunk —
-that change materials, component geometry, typography and motion of the whole shell while the
-manuscript page stays untouched. All textures are procedural inline SVG: zero image assets.
-Each world stays usable in greyscale, at 900 px width, and with OS reduced-motion enabled.
+Eleven themes include six color palettes and five visual worlds: Fantasy, Dark Fantasy,
+Medieval, Sci-Fi and Cyberpunk. The worlds change materials, typography, component geometry
+and animation while keeping manuscript pages consistent. The theme system uses semantic
+design tokens and procedural SVG textures, supports reduced motion, and offers a calmer
+visual intensity.
 
 <p align="center">
-  <img src="docs/screenshots/theme-worlds.jpg" alt="The same project dashboard sliced across five theme worlds: Fantasy, Dark Fantasy, Medieval, Sci-Fi, Cyberpunk" width="900">
-  <br><sub>One screen, five worlds — left to right: Fantasy · Dark Fantasy · Medieval · Sci-Fi · Cyberpunk</sub>
+  <img src="https://raw.githubusercontent.com/nazar987/FanCreator-releases/main/docs/screenshots/theme-worlds.jpg" alt="The same workspace in Fantasy, Dark Fantasy, Medieval, Sci-Fi and Cyberpunk themes" width="900">
 </p>
 
-<table>
-  <tr>
-    <td align="center"><img src="docs/screenshots/theme-fantasy.jpg" alt="Fantasy theme" width="280"><br><sub>Fantasy</sub></td>
-    <td align="center"><img src="docs/screenshots/theme-darkfantasy.jpg" alt="Dark Fantasy theme" width="280"><br><sub>Dark Fantasy</sub></td>
-    <td align="center"><img src="docs/screenshots/theme-medieval.jpg" alt="Medieval theme" width="280"><br><sub>Medieval</sub></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="docs/screenshots/theme-scifi.jpg" alt="Sci-Fi theme" width="280"><br><sub>Sci-Fi</sub></td>
-    <td align="center"><img src="docs/screenshots/theme-cyberpunk.jpg" alt="Cyberpunk theme" width="280"><br><sub>Cyberpunk</sub></td>
-    <td align="center"><sub>…plus six classic<br>color palettes</sub></td>
-  </tr>
-</table>
+## Architecture
 
----
-
-## Engineering highlights
-
-- **Secure Electron architecture.** `contextIsolation` on, `nodeIntegration` off; the renderer
-  talks to Node only through a single typed IPC contract (95 channels), and images are served
-  through a custom privileged `asset://` protocol instead of file paths.
-- **SQLite that fails safe.** `better-sqlite3` in WAL mode with an FTS5 search index rebuilt
-  transactionally on write, so it can never drift from the data. If storage can't be opened
-  safely, the app starts in an explicit **read-only mode** — writes are rejected at the IPC layer
-  and again in the store — instead of risking the user's files.
-- **Pagination in a web editor.** ProseMirror behaves differently from Word in dozens of small
-  ways writers notice instantly (lists after images, `Ctrl`+`Backspace`, indents in headings) —
-  14 custom extensions close those gaps.
-- **PDF without a print dialog.** Chapters are rendered to HTML in a hidden window, images are
-  inlined and awaited, then `printToPDF` produces a book-formatted A4 document.
-- **Design tokens, not five stylesheets.** Theme worlds declare semantic material tokens that
-  feature modules consume — adding a world touches one file, not every component.
-- **Safety invariants live in the data layer.** Snapshot-before-restore, snapshot-before-replace
-  and soft-delete are enforced in main-process handlers, so no new UI path can bypass them.
-- **Test-backed refactoring.** 1 100+ characterization and unit tests run against real SQL,
-  guarding the data format before any migration.
-
-### Architecture
+FanCreator separates the React interface, the preload bridge and the Electron main process.
+The renderer accesses desktop capabilities through a typed platform adapter; file access,
+storage, document conversion and updates run in the main process.
 
 ```mermaid
 flowchart LR
-  subgraph R["Renderer — React 18 + TipTap"]
-    UI["Feature modules<br/>editor · boards · timelines<br/>characters · library · help"]
-    TH["Theme layer<br/>palettes → tokens → worlds"]
-  end
-  subgraph P["Preload"]
-    API["window.api<br/>typed bridge, 95 channels"]
-  end
-  subgraph M["Main process — Node"]
-    IPC["IPC handlers"]
-    STORE["SQLite + FTS5"]
-    DOC["DOCX import · DOCX/PDF export"]
-    UPD["Auto-updater"]
-  end
-  DISK[("Local user data<br/>database · assets · versions")]
+  UI["Renderer<br/>React · TipTap · visual tools"]
+  PLATFORM["Typed platform adapter"]
+  BRIDGE["Preload<br/>contextBridge"]
+  IPC["Main process<br/>IPC handlers"]
+  DB[("SQLite + FTS5")]
+  FILES[("Local assets<br/>versions · backups")]
+  DOCS["DOCX / PDF conversion"]
+  UPDATES["electron-updater"]
+  RELEASES["GitHub Releases"]
 
-  TH -.-> UI
-  UI <--> API <--> IPC
-  IPC --> STORE --> DISK
-  IPC --> DOC --> DISK
-  UPD --> IPC
+  UI <--> PLATFORM <--> BRIDGE <--> IPC
+  IPC --> DB
+  IPC --> FILES
+  IPC --> DOCS
+  UPDATES --> IPC
+  UPDATES <--> RELEASES
 ```
 
-### Delivery pipeline
+### Engineering decisions
 
-Pushing a version tag runs GitHub Actions on Windows: native modules are rebuilt for Electron,
-the app is bundled with electron-vite, and electron-builder publishes the NSIS installer and
-update manifest **to this repository**. Installed copies download the update in the background
-and apply it on quit. CI verifies the token, the repository visibility and the version before
-building, and fails early with a clear message otherwise.
+- **Typed process boundaries.** A shared API contract and channel registry connect main
+  and preload. Channels are classified by their effects, allowing read-only restrictions
+  to be applied centrally. Architecture tests check channel mappings and import boundaries.
+  The renderer uses `contextIsolation: true` and `nodeIntegration: false`; project images
+  are served through a custom `asset://` protocol.
+- **Transactional local storage.** SQLite runs in WAL mode. Project writes and FTS5 index
+  updates share a transaction, keeping searchable text consistent with saved content.
+  Storage startup checks format compatibility before allowing writes.
+- **A paginated web editor.** TipTap and ProseMirror are extended for manuscript-specific
+  behavior, including paragraph indentation, image sizing, page breaks, internal links
+  and keyboard handling.
+- **Document conversion.** DOCX import parses OOXML formatting and embedded images,
+  with a mammoth fallback. PDF export renders chapters in a hidden Electron window,
+  waits for images to decode and uses `printToPDF` with A4 layout.
+- **Recovery in the data layer.** Main-process handlers enforce snapshots before restore
+  and bulk replacement. Content changes made outside the editor notify open chapters
+  so a later autosave does not overwrite the updated text.
 
-## Tech stack
+## Stack and verification
 
-| Layer | Tools |
+| Layer | Technologies |
 | --- | --- |
-| Desktop shell | Electron 34, electron-vite, electron-builder (NSIS) |
-| UI | React 18, TypeScript 5.7, framer-motion, lucide-react, @hello-pangea/dnd |
-| Editor | TipTap 3 / ProseMirror, tiptap-pagination-plus, 14 custom extensions |
-| Storage | better-sqlite3 (WAL, FTS5), electron-store |
-| Documents | custom OOXML parser, mammoth, docx / html-to-docx, `printToPDF`, JSZip |
-| Quality | Vitest, happy-dom, strict TypeScript, CI typecheck + tests |
-| Delivery | GitHub Actions → GitHub Releases → electron-updater |
+| Desktop | Electron 34, electron-vite, electron-builder, Windows NSIS installer |
+| Interface | React 18, TypeScript 5.7, Framer Motion, Lucide, @hello-pangea/dnd |
+| Editor | TipTap 3, ProseMirror, tiptap-pagination-plus, custom extensions |
+| Storage | better-sqlite3, SQLite WAL and FTS5, electron-store |
+| Documents and backups | OOXML parser, mammoth, docx, html-to-docx, JSZip, Electron printToPDF |
+| Verification | Vitest, happy-dom, TypeScript checks, architecture tests |
+| Delivery | GitHub Actions, GitHub Releases, electron-updater |
 
-## How it is built
+Main-process tests execute real SQLite queries through a `node:sqlite` adapter for the
+`better-sqlite3` API. Dedicated suites cover storage failures, read-only behavior,
+backup and restore, document conversion, editor behavior and architecture boundaries.
+CI runs type checks and automated tests before release packaging.
 
-- Work is planned in numbered phases from real-usage feedback; every phase ends in a release.
-- Architectural decisions are recorded as **ADRs**, and risky ideas are validated with
-  throwaway **spikes** before they touch the codebase.
-- Changes go through review — including dedicated security reviews with written verdicts
-  for each finding.
-- A task log keeps the reasoning behind every decision, including rejected proposals
-  and lessons from bugs that slipped through.
+A version tag starts the Windows release pipeline: validate the version and release
+destination, rebuild native dependencies for Electron, run checks, bundle the app and
+publish the installer with its update manifest. Installed copies download updates in
+the background and can apply them on exit or through the update action.
 
-## Roadmap
+## Download and installation
 
-Currently in design and prototyping: an **Android companion app**. The plan is one shared
-TypeScript core running in both Electron and a Capacitor WebView, SQLite on both platforms,
-and state-based sync (LAN, cloud drives, or a file) with **end-to-end encryption** and
-conflict copies so that chapter text is never silently overwritten.
+1. Open the [latest release](https://github.com/nazar987/FanCreator-releases/releases/latest).
+2. Download `FanCreator-Setup-x.y.z.exe` and run the installer.
+3. Launch FanCreator and create a project.
 
----
+The distributed build targets Windows 10/11, x64. The installer is currently unsigned,
+so Windows SmartScreen may display a warning. Subsequent updates are handled by the application.
 
-## Download
+## Development direction
 
-Grab the latest installer from **[Releases](https://github.com/nazar987/FanCreator-releases/releases/latest)**
-(`FanCreator-Setup-x.y.z.exe`). Windows 10/11, x64. After installation the app keeps itself up to date.
-
-> The installer is not code-signed, so Windows SmartScreen may show a warning on first run:
-> *More info → Run anyway*.
+An Android companion is being explored through architecture work and isolated prototypes:
+a shared TypeScript core, a Capacitor shell and synchronization between devices.
+These capabilities are under development and are not part of the current Windows release.
 
 ## About this repository
 
-This public repository is the **distribution channel**: it holds release builds and the
-update manifest that installed copies check. The source code lives in a private repository —
-a code walkthrough is available on request.
+This public repository contains the project overview, screenshots, installers and update
+metadata. The application source is maintained in a private repository.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/nazar987/FanCreator-releases/blob/main/LICENSE)
